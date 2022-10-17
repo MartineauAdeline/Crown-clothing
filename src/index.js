@@ -2,17 +2,23 @@
 import React from 'react';
 //react est orienté web
 import ReactDOM from 'react-dom/client';
-import './index.scss';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 //router generique qui exploite l'url afin de garder une trace de l'historique de navigation de l'utilisateur
 import { BrowserRouter } from 'react-router-dom';
 
+import App from './App';
+import {UserProvider} from './context/user.context'
+import reportWebVitals from './reportWebVitals';
+
+import './index.scss';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    <UserProvider>
       <App />
+    </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
